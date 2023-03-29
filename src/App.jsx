@@ -43,10 +43,14 @@ function App() {
     setPokemonIndex(pokemonIndex + 1)
   }
 
+  function handleClickIndex (index) {
+    setPokemonIndex(index)
+  }
+
   return (
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-      <NavBar minusClick={handleMinusIndex} plusClick={handlePlusIndex} pokemonIndex={pokemonIndex} maxIndex={pokemonList.length - 1} />
+      <NavBar pokemonList={pokemonList} handleClick={handleClickIndex} />
     </div>
   )
 }

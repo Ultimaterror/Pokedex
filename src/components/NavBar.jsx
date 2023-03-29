@@ -1,12 +1,12 @@
 import React from "react";
 
-function NavBar({ minusClick, plusClick, pokemonIndex, maxIndex }) {
+function NavBar({ pokemonList, handleClick }) {
     return (
         <div style={{ display: "flex", justifyContent: "space-around" }}>
-            {pokemonIndex > 0 ? <button onClick={minusClick}>Previous Pokémon</button> : null}
-            {pokemonIndex < maxIndex ? <button onClick={plusClick}>Next Pokémon</button> : null}
+            {pokemonList.map((pokemon, index) => {
+                return <button key={pokemon.name} onClick={() => { handleClick(index) }}>{pokemon.name}</button>
+            })}
         </div>
-
     )
 }
 
